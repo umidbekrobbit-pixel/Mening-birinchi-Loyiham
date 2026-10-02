@@ -152,11 +152,14 @@ searchBtn.addEventListener("click", () => {
 });
 
 refreshBtn.addEventListener("click", () => {
-  const value = cityInput.value.trim() || "Toshkent";
-  checkWeather(value);
+  const value = cityInput.value.trim();
+  if (value) {
+    checkWeather(value);
+  } else {
+    showError("Iltimos, avval shahar nomini kiriting!");
+  }
 });
 
-window.addEventListener("load", () => {
-  cityInput.value = "Toshkent";
-  checkWeather("Toshkent");
-});
+// Sahifa yuklanganda bo'sh qolamiz
+weatherBox.classList.add("hidden");
+errorBox.classList.add("hidden");
